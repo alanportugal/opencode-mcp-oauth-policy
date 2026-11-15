@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCode MCP Integrations</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --rule: #e2e2e2;
+    --accent: #1a5fb4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171a;
+      --fg: #e8e8e8;
+      --muted: #a0a6ad;
+      --rule: #2a2f35;
+      --accent: #7ab0f5;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 40rem; margin: 0 auto; }
+  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.05rem; margin: 2.25rem 0 0.5rem; letter-spacing: 0.01em; }
+  p, li { margin: 0.6rem 0; }
+  ul { padding-left: 1.25rem; }
+  .lede { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+  footer { color: var(--muted); font-size: 0.9rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>OpenCode MCP Integrations</h1>
+  <p class="lede">A personal, single-user tool. Not a product, not a service, and not offered to the public.</p>
+
+  <h2>What this is</h2>
+  <p>
+    This OAuth client exists to let one person's local <a href="https://opencode.ai">OpenCode</a>
+    installation talk to their own Google account. Two local MCP (Model Context Protocol) servers
+    running on that person's own computer use it:
+  </p>
+  <ul>
+    <li>a Gmail server, to read and label the owner's mail;</li>
+    <li>a Google Calendar server, to read the owner's calendars and events.</li>
+  </ul>
+  <p>
+    Both servers run locally on the owner's machine. There is no hosted backend, no shared
+    service, and no account to sign up for. The OAuth client exists solely so that the local
+    processes can be authorized by, and call, Google's APIs.
+  </p>
+
+  <h2>What this is not</h2>
+  <ul>
+    <li>It does not collect, sell, or share data with anyone.</li>
+    <li>It does not have analytics, advertising, or tracking of any kind.</li>
+    <li>It does not have a server that stores your mail or calendar data.</li>
+    <li>It does not accept new users. It has exactly one user: its owner.</li>
+  </ul>
+
+  <h2>Scopes requested</h2>
+  <ul>
+    <li><code>https://www.googleapis.com/auth/gmail.modify</code> — read, label, and organize the owner's mail</li>
+    <li><code>https://www.googleapis.com/auth/gmail.settings.basic</code> — read and manage the owner's mail settings and filters</li>
+    <li><code>https://www.googleapis.com/auth/calendar</code> — read the owner's calendars and events</li>
+  </ul>
+  <p>
+    The app asks for nothing beyond what those local servers need to answer the owner's own
+    requests, and it never runs without an explicit action from its owner.
+  </p>
+
+  <hr>
+
+  <p>
+    Full detail on what is accessed, where it goes, and how to revoke access:
+    <a href="./privacy.html">Privacy Policy</a>.
+  </p>
+
+  <footer>
+    Last updated 2026-11-15. Contact: <a href="mailto:portugal.alan@gmail.com">portugal.alan@gmail.com</a>.
+  </footer>
+
+</main>
+</body>
+</html>
